@@ -31,7 +31,7 @@ print data.index("hi")
 
 # 사전(딕셔너리)
 # { 키 : 값 }
-user ={}
+user = {}
 user['me'] = {'age': 30, 'adderss': 'daejeon'}
 user['you'] = {'age': 22, 'address': 'seoul'}
 # 사전 출력
