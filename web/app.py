@@ -64,6 +64,7 @@ def login():
 
     if 'id' in session:
         return redirect("/")
+    
     return render_template("login.html")
 
 @app.route("/join", methods=['GET', 'POST'])
@@ -72,7 +73,7 @@ def join():
         id = request.form["id"].strip()
         pw = hashlib.sha1(request.form["pw"].strip()).hexdigest()
         
-        sql = "select * from user where id='%s'" % id
+        sql = "select * from user where id='%s'" % id 
         if query_db(sql, one=True):
             return "<script>alert('join fail');history.back(-1);</script>"
 
@@ -86,7 +87,7 @@ def join():
     
     return render_template("join.html")
 
-app.route("/add")
+@app.route("/add")
 @app.route("/add/<int:num1>")
 @app.route("/add/<int:num1>/<int:num2>")
 def add(num1=None, num2=None):
